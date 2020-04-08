@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9599df38-cdf9-480e-8e85-f6af1b31d456" basePath="/api">
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="communityapptestFlow" doc:id="f6ba783e-1121-42bb-a1be-8955dd84bf09" >
+		<http:listener doc:name="Listener" doc:id="80e754f4-9b0f-4176-829b-74c9457b33b8" config-ref="HTTP_Listener_config" path="/"/>
+		<set-payload value="#['This is the CE version check api']" doc:name="Set Payload" doc:id="97551ec3-e1ea-42c1-9cf0-1c793ed6b373" />
+	</flow>
+</mule>
